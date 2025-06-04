@@ -24,45 +24,42 @@ function App() {
     alert('You have been logged out.');
   };
 
+  
   return (
     <Router>
       <div>
         <nav
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '0.75rem',
-            marginBottom: '2rem',
-            backgroundColor: '#ffffff',
-            padding: '1rem',
-            borderRadius: '8px',
-            boxShadow: '0 2px 6px rgba(0,0,0,0.05)',
-          }}
-        >
-          <Link to="/">Home</Link>
-          {!user && <Link to="/register">Register</Link>}
-          {!user && <Link to="/login">Login</Link>}
-          {user && <Link to="/log-treatment">Log Treatment</Link>}
-          {user && <Link to="/treatment-history">View History</Link>}
-          {user && <Link to="/add-medication">Add Medication</Link>}
-          {user && (
-            <button
-              onClick={handleLogout}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: '#1a73e8',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                padding: '0.4rem 0.75rem',
-                borderRadius: '4px',
-                transition: 'background 0.2s',
-              }}
-            >
-              Logout
-            </button>
-          )}
+            style={{
+              transition: 'all 0.3s ease',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '0.75rem',
+              marginBottom: '2rem',
+              backgroundColor: '#ffffff',
+              padding: '1rem',
+              borderRadius: '8px',
+              boxShadow: '0 2px 6px rgba(0,0,0,0.05)',
+            }}
+          >
+            <Link to="/">Home</Link>
+            {!user && <Link to="/register">Register</Link>}
+            {!user && <Link to="/login">Login</Link>}
+            {user && <Link to="/log-treatment">Log Treatment</Link>}
+            {user && <Link to="/treatment-history">View History</Link>}
+            {user && <Link to="/add-medication">Add Medication</Link>}
+          {user && (<button onClick={handleLogout}
+            style={{
+              backgroundColor: '#d1001c',
+              marginTop: '-0.5px',
+              color: 'white',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              display: 'inline-block',
+              maxWidth: 'fit-content',
+              Height: 'fit-content',
+              justifyContent: 'space-between',
+          }}>Logout</button>)}
         </nav>
 
         <Routes>

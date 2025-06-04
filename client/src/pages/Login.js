@@ -18,7 +18,7 @@ export default function Login() {
 
   return (
     <form onSubmit={login}>
-      <h2>Login</h2>
+      <h2>Login to HaemoTrack</h2>
       <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
       <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
       <button type="submit">Login</button>

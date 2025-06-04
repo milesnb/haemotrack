@@ -18,7 +18,7 @@ export default function Register() {
 
   return (
     <form onSubmit={register}>
-      <h2>Register</h2>
+      <h2>Register with HaemoTrack</h2>
       <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
       <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
       <button type="submit">Register</button>

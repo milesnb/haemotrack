@@ -16,8 +16,8 @@ export default function Register() {
 
       await axios.post('http://localhost:5000/api/users/register', {
         firebaseUID: user.uid,
-        email: user.email, // ✅ Store email
-        role: user.role // 'patient' or 'clinician'
+        email: user.email, 
+        role: user.role 
       });
 
       alert("User registered and saved!");

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
+import axios from 'axios';
 
 export default function Register() {
   const [email, setEmail] = useState('');
@@ -8,13 +9,25 @@ export default function Register() {
 
   const register = async (e) => {
     e.preventDefault();
+
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      alert("User registered successfully!");
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      await axios.post('http://localhost:5000/api/users/register', {
+        firebaseUID: user.uid,
+        email: user.email, // ✅ Store email
+        role: user.role // 'patient' or 'clinician'
+      });
+
+      alert("User registered and saved!");
     } catch (error) {
+      console.error(error);
       alert(error.message);
     }
   };
+
+  
 
   return (
     <form onSubmit={register}>

@@ -2,22 +2,36 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from './firebase';
+import axios from 'axios';
 
 import Register from './pages/Register';
 import Login from './pages/Login';
 import LogTreatment from './pages/LogTreatment';
 import TreatmentHistory from './pages/TreatmentHistory';
 import AddMedication from './pages/AddMedication';
+import ClinicianDashboard from './pages/ClinicianDashboard';
 
 function App() {
   const [user, setUser] = useState(null);
-
+  const [role, setRole] = useState(null);
+  
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
+      if (currentUser) {
+        try {
+          const res = await axios.get(`http://localhost:5000/api/users/firebase/${currentUser.uid}`);
+          setRole(res.data.role); 
+        } catch (err) {
+          console.error("Failed to fetch role:", err);
+        }
+      } else {
+        setRole(null);
+      }
     });
-    return () => unsubscribe();
-  }, []);
+
+  return () => unsubscribe();
+}, []);
 
   const handleLogout = async () => {
     await signOut(auth);
@@ -48,6 +62,7 @@ function App() {
             {user && <Link to="/log-treatment">Log Treatment</Link>}
             {user && <Link to="/treatment-history">View History</Link>}
             {user && <Link to="/add-medication">Add Medication</Link>}
+            {role === 'clinician' && <Link to="/clinician-dashboard">Clinician</Link>}
           {user && (<button onClick={handleLogout}
             style={{
               backgroundColor: '#d1001c',
@@ -69,6 +84,7 @@ function App() {
           <Route path="/log-treatment" element={<LogTreatment />} />
           <Route path="/treatment-history" element={<TreatmentHistory />} />
           <Route path="/add-medication" element={<AddMedication />} />
+          <Route path="/clinician-dashboard" element={<ClinicianDashboard />} />
         </Routes>
 
         {user && (

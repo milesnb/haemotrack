@@ -12,6 +12,7 @@ import HomePage from './pages/HomePage';
 import Dashboard from './pages/Dashboard';
 import Medications from './pages/Medications';
 import Appointments from './pages/Appointments';
+import ClinicianDashboard from './pages/ClinicianDashboard';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -77,6 +78,7 @@ function App() {
           <Route path="/add-medication" element={<AddMedication />} />
           <Route path="/medications" element={<Medications />} />
           <Route path="/appointments" element={<Appointments />} />
+          <Route path="/clinician" element={<ClinicianDashboard />} />
           
           
 

@@ -523,3 +523,7 @@ nav a:hover {
   padding: 1rem;
   text-align: center;
 }
+
+.nav_Logo {
+  justify-content: left;
+}

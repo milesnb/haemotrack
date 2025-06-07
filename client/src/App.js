@@ -60,9 +60,11 @@ function App() {
             boxShadow: '0 2px 6px rgba(0,0,0,0.05)',
           }}
         >
-          <Link to="/">Home</Link>
+          <img src="/haemooo.png" alt="Logo" className="nav_Logo" />
+          {!user && <Link to="/">Home</Link>}
           {!user && <Link to="/register">Register</Link>}
           {!user && <Link to="/login">Login</Link>}
+          {user && <Link to="/">Home</Link>}
           {user && <Link to="/log-treatment">Log Treatment</Link>}
           {user && <Link to="/treatment-history">View History</Link>}
           {user && <Link to="/add-medication">Add Medication</Link>}
@@ -73,6 +75,7 @@ function App() {
               style={{
                 backgroundColor: '#d1001c',
                 marginTop: '-0.5px',
+                paddingBottom: '12px',
                 color: 'white',
                 fontWeight: 'bold',
                 cursor: 'pointer',

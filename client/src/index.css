@@ -49,7 +49,6 @@ button {
   cursor: pointer;
   font-weight: bold;
   transition: background 0.2s;
-
 }
 
 button:hover {
@@ -57,19 +56,8 @@ button:hover {
   color: white;
 }
 
-
-/* Updated nav styles */
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-nav a {
-  color: white;
+button1 {
+    color: white;
   background-color: #d1001c;
   text-decoration: none;
   font-weight: bold;
@@ -79,64 +67,10 @@ nav a {
   transition: background 0.2s;
 }
 
-nav a:hover {
-  background-color: #b80017;
-}
-
-nav button {
-  padding: 0.4rem 0.75rem;
-  font-weight: bold;
-  background: #f1f3f5;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-nav button:hover {
-  background-color: #dbeaff;
-}
-
-
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-  background-color: #ffffff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-nav a {
-  color: #1a73e8;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0.4rem 0.75rem;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-nav a:hover {
+button1:hover {
   background-color: #eef4ff;
-}
-
-nav button {
-  padding: 0.4rem 0.75rem;
-  font-weight: bold;
-  background: #f1f3f5;
-  color: #1a73e8;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-nav button:hover {
-  background-color: #dbeaff;
+  color: #c0392b;
+  text-decoration: underline;
 }
 
 .homepage-container {
@@ -158,10 +92,6 @@ nav button:hover {
   color: #d1001c;
   font-size: 24px;
   font-weight: bold;
-}
-
-.nav-buttons .btn {
-  margin-left: 10px;
 }
 
 .hero {
@@ -213,7 +143,6 @@ nav button:hover {
   border-top: 1px solid #eee;
 }
 
-
 a {
   text-decoration: none;
   border-bottom: none;
@@ -223,8 +152,6 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
-
 
 .homepage-container {
   display: flex;
@@ -245,10 +172,6 @@ a:hover {
   color: #d1001c;
   font-size: 24px;
   font-weight: bold;
-}
-
-.nav-buttons .btn {
-  margin-left: 10px;
 }
 
 .hero {
@@ -329,20 +252,49 @@ a:hover {
   color: #fa314a;
 }
 
+/*navbar*/
+
+.nav_Logo {
+  width: 150px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  position: absolute; 
+  left: 50px;
+  top: 38px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  display: block;
+}
 
 nav a {
   color: white;
+  background-color: #d1001c;
   text-decoration: none;
   font-weight: bold;
+  max-height: fit-content;
   padding: 0.4rem 0.75rem;
   border-radius: 4px;
   transition: background 0.2s;
 }
 
-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
+nav a:hover {
+  background-color: #eef4ff;
+  color: #d1001c;
+}
 
 /*Loggedin*/
 
@@ -522,8 +474,4 @@ nav a:hover {
   display: block;
   padding: 1rem;
   text-align: center;
-}
-
-.nav_Logo {
-  justify-content: left;
 }

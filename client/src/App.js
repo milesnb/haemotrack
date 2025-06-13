@@ -46,21 +46,8 @@ function App() {
   return (
     <Router>
       <div>
-        <nav
-          style={{
-            transition: 'all 0.3s ease',
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '0.75rem',
-            marginBottom: '2rem',
-            backgroundColor: '#ffffff',
-            padding: '1rem',
-            borderRadius: '8px',
-            boxShadow: '0 2px 6px rgba(0,0,0,0.05)',
-          }}
-        >
-          <img src="/haemooo.png" alt="Logo" className="nav_Logo" />
+        <a href='/'><img src={`${process.env.PUBLIC_URL}/haemooo.png`} alt="Logo" className="nav_Logo" /></a>
+        <nav>
           {!user && <Link to="/">Home</Link>}
           {!user && <Link to="/register">Register</Link>}
           {!user && <Link to="/login">Login</Link>}
@@ -70,25 +57,9 @@ function App() {
           {user && <Link to="/add-medication">Add Medication</Link>}
           {role === 'clinician' && <Link to="/clinician-dashboard">Clinician</Link>}
           {user && (
-            <button
-              onClick={handleLogout}
-              style={{
-                backgroundColor: '#d1001c',
-                marginTop: '-0.5px',
-                paddingBottom: '12px',
-                color: 'white',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                display: 'inline-block',
-                maxWidth: 'fit-content',
-                height: 'fit-content',
-                padding: '0.5rem 1rem',
-                border: 'none',
-                borderRadius: '4px',
-              }}
-            >
+            <button1 onClick={handleLogout} className="nav a">
               Logout
-            </button>
+            </button1>
           )}
         </nav>
 
